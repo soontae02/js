@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        1. 사용자에게 바구니의 크기를 입력 받습니다.
+        2. 그 다음에 사과의 개수를 입력 받습니다.
+        3. 사과의 개수와, 필요한 바구니의 개수를 출력해주면 됩니다.
+        ex) 바구니크기=10, 사과의 개수 = 151, 필요한 바구니 개수 16개
+            바구니크기=10, 사과의 개수 = 150, 필요한 바구니 개수 15개        
+        */
+        let bucket = parseInt( prompt("바구니 하나에 담을 수 있는 사과 개수를 입력하세요:") );
+        let apple = parseInt( prompt("사과의 개수:") );
+
+        //let a = parseInt(bucket);
+        //let b = parseInt(apple);
+
+        //나머지가 없으면, 몫을 구해주면 되고, 나머지가 있으면 몫+1
+        let count = apple % bucket === 0 ? apple / bucket : apple / bucket + 1;
+
+        document.write("바구니의 크기:" + bucket + ", 사과의 개수:" + apple + ", 필요한 바구니:" + parseInt(count) );
+
+    </script>
+
+</body>
+</html>
