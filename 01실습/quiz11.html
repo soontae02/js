@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        /*
+        더하기 문제 맞추기
+        1~100까지 랜덤한 덧셈 문제를 출제합니다.
+        사용자는 정답을 입력합니다.
+        0을 누르면 프로그램이 종료됩니다.
+        정답횟수, 오답횟수를 화면에 출력해주세요.
+        */
+
+        let cnt1 = 0;
+        let cnt2 = 0;
+        while(true) {
+            let i = parseInt(Math.random()*100) + 1;
+            let j = parseInt(Math.random()*100) + 1;
+
+            let answer = parseInt( prompt(`${i} + ${j} = ?\n(문제를 그만 푸시려면 0을 입력하세요.)`) );
+            let correct = i + j;
+
+            if(answer === 0) {
+                break;
+            }
+
+            if (answer === correct) {
+                cnt1++;  
+            } else {
+                cnt2++;
+            } 
+
+            document.write(`정답: ${cnt1}, 오답: ${cnt2}`);
+        }
+
+        
+    </script>
+
+</body>
+</html>
