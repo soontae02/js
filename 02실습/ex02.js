@@ -4,7 +4,7 @@ let sum = 0;
 let avg = 0;
 
 for (let i = 0; i < number.length; i++) {
-    sum += number[i]
+    sum += number[i];
 }
 avg = sum/number.length;
 

@@ -20,33 +20,6 @@
         // 결과: [[], [], []]
 
         
-        let floorCount = parseInt(prompt("층수를 입력하세요"));
-
-        let floor = [];
-        for (let i = 0; i < floorCount; i++) {
-            floor[i] = [];
-        }
-
-        let personCount = 0;
-
-        while (true) {
-                let name = prompt("입주할 사람의 이름을 입력하세요\n멈추려면 '그만'을 입력");
-            if (name === "그만") break;
-                let floorIndex = personCount % floorCount;
-                floor[floorIndex].push(name);
-                personCount++;
-        }
-
-        for (let i = 0; i < floor.length; i++) {
-            for (let j = 0; j < floor[i].length; j++) {
-                document.write(`층: ${i + 1}\n이름: ${floor[i][j]}\n`);
-            }
-        }
-
-        
-        
-        
-
         /////////////////////////////////////////////////////////////////////
         // 2단계: 각 층에 사람 배정
         // TODO: 각 층에 사람의 이름을 입력받아 저장하세요
@@ -64,13 +37,53 @@
         // 이름: 홍길동
         // 층: 그만
 
+        
+
+        let floorCount = parseInt(prompt("층수를 입력하세요"));
+
+        let floor = [];
+        for (let i = 0; i < floorCount; i++) {
+            floor[i] = [];
+        }
+
+        while (true) {
+            let a = parseInt(prompt("층수 입력"));
+            let name = prompt("입주할 사람의 이름을 입력하세요\n멈추려면 '그만'을 입력");
+
+            // 그만을 입력하면 종료
+            if (name === "그만") {
+                break;
+            }
+
+            // 층수를 잘못 입력한 경우
+            if (a > floorCount || a <= 0 || isNaN(a)) {
+                alert(`1~${floorCount} 사이의 층수를 입력하세요`);
+                continue;
+            }
+
+            // 사용자가 5층을 입력하면 -> index번호는 4
+            floor[a - 1].push(name);
+        }
+
+
         //반복문으로 결과 출력
         // 결과:
         // 1층: 김철수
         // 2층: 이영희, 홍길동
         // 3층: 비어있음
 
+        for (let i = 0; i < floor.length; i++) {
+            let str = `${i + 1}층: `;
 
+            if (floor[i].length === 0) {
+                str += "비어있음";
+            } else {
+                // join으로 깔끔하게 출력
+                str += floor[i].join(", ");
+            }
+
+            document.write(str + "<br>");
+        }
     </script>
 
 </body>
