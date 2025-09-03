@@ -6,7 +6,7 @@
 
 function registUser(user) {
     try {
-        if ( user.name.length <= 2 || user.name === "" ) {
+        if ( user.name.length <= 2 || user.name === null ) {
             throw new Error("정확한 이름을 입력해주세요");
         }
         return user.name;
