@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #hi {
+            display: none;
+        }
+
+        .red-btn {
+            border: none;
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h3>input은 지우는게 아니라 display를 제어(삭제는 아직 구현하지 마세요)</h3>
+
+    <hr>
+
+    <h1>할일 목록 만들기</h1>
+    
+    <h3 id="hi"></h3>
+
+    <input type="input" id="name">
+    <button type="button" id="nameBtn">확인</button>
+
+    <br>
+
+    <input type="input" id="todo">
+    <button type="button" id="todoBtn">확인</button>
+
+    <ul class="box">
+
+    </ul>
+
+
+    <script>
+        let hi = document.querySelector("#hi");
+        let name = document.querySelector("#name");
+        let nameBtn = document.querySelector("#nameBtn");
+
+        let todo = document.querySelector("#todo");
+        let todoBtn = document.querySelector("#todoBtn");
+        let box = document.querySelector(".box");
+
+        nameBtn.addEventListener("click", function (){
+            name.style.display = "none";
+            nameBtn.style.display = "none";
+            hi.textContent = `${name.value}님 안녕하세요`;
+            hi.style.display = "block";
+        });
+
+        todoBtn.addEventListener("click", function() {
+            let li = document.createElement("li");
+            li.textContent = todo.value;
+
+            let button = document.createElement("button");
+            button.innerHTML = "X";
+            button.className = "red-btn";
+
+            button.addEventListener("click", function() {
+                li.style.display = "none";
+            });
+
+            li.appendChild(button);
+            todo.value = "";
+            box.appendChild(li);
+        });
+    </script>
+
+</body>
+</html>
